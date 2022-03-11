@@ -18,7 +18,7 @@ class DashboardScreen extends HookConsumerWidget {
             children: [
               Text(
                 'Dashboard',
-                style: boldTextStyle(size: 30, color: Colors.grey.shade900),
+                style: boldTextStyle(size: 30, color: Colors.grey.shade800),
               ),
               const SizedBox(height: 4),
               // Container(
@@ -49,13 +49,14 @@ class DashboardScreen extends HookConsumerWidget {
               const SizedBox(height: 20),
               Text(
                 'History',
-                style: boldTextStyle(size: 18),
+                style: boldTextStyle(size: 19, color: Colors.grey.shade800),
               ),
               const SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(2),
-                  border: Border.all(color: Colors.black),
+                  color: Colors.grey[100],
+                  border: Border.all(color: Colors.grey.shade700),
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 child: Text(
@@ -68,7 +69,7 @@ class DashboardScreen extends HookConsumerWidget {
               const SizedBox(height: 20),
               Text(
                 'Remove History?',
-                style: boldTextStyle(size: 18, color: Colors.redAccent),
+                style: boldTextStyle(size: 19, color: Colors.redAccent),
               ),
             ],
           ),

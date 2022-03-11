@@ -21,7 +21,10 @@ class HomeScren extends HookConsumerWidget {
             elevation: 10,
             child: TabBar(
               indicatorColor: Colors.white,
-              labelStyle: primaryTextStyle(size: 18),
+              labelStyle: primaryTextStyle(size: 18, weight: FontWeight.w600),
+              unselectedLabelStyle: primaryTextStyle(
+                size: 18,
+              ),
               labelColor: Colors.white,
               unselectedLabelColor: Colors.grey[400],
               labelPadding: const EdgeInsets.symmetric(horizontal: 2),

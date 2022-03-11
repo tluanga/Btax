@@ -11,7 +11,7 @@ Widget selectForm() {
           height: 120,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: Colors.grey[300],
+            color: Colors.grey[100],
             border: Border.all(
               color: Colors.grey.shade600,
               width: 1,
@@ -42,7 +42,7 @@ Widget selectForm() {
           height: 120,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: Colors.grey[300],
+            color: Colors.grey[100],
             border: Border.all(
               color: Colors.grey.shade600,
               width: 1,
