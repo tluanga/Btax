@@ -52,8 +52,8 @@ class Authentication {
   }
 
   // SignUp the user using Email and Password
-  Future<void> signUpWithEmailAndPassword(String email, String password,
-      String name, String bio, BuildContext context) async {
+  Future signUpWithEmailAndPassword(
+      String email, String password, BuildContext context) async {
     try {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(
@@ -61,28 +61,24 @@ class Authentication {
             password: password,
           )
           .whenComplete(() => null);
+      return userCredential.user!.uid;
 
       ///
-      UserModel userModel = UserModel(
-        bio: bio,
-        followers: [],
-        following: [],
-        profileUrl: '',
-        status: '',
-        userType: 'user',
-        userPhone: '',
-        userEmail: email,
-        dateOfRegistration: DateTime.now().toString(),
-        sticked: false,
-        userId: userCredential.user!.uid,
-        userName: name,
-      );
+      // UserModel userModel = UserModel(
+
+      //   userPhone: '',
+      //   userEmail: email,
+      //   dateOfRegistration: DateTime.now().toString(),
+
+      //   userId: userCredential.user!.uid,
+
+      // );
 
 //add user to firestore
-      await FirebaseFirestore.instance
-          .collection('user')
-          .doc(userCredential.user!.uid)
-          .set(userModel.toJson());
+      // await FirebaseFirestore.instance
+      //     .collection('user')
+      //     .doc(userCredential.user!.uid)
+      //     .set(userModel.toJson());
 
       ///
     } on FirebaseAuthException catch (e) {
@@ -104,7 +100,7 @@ class Authentication {
       if (e == 'email-already-in-use') {
         print('Email already in use.');
       } else {
-        print('Error: $e');
+        return '';
       }
     }
 
@@ -144,8 +140,16 @@ class Authentication {
     // }
 
     //  SignOut the current user
-    Future<void> signOut() async {
-      await _auth.signOut();
-    }
+  }
+
+  Future<void> signOut() async {
+    await _auth.signOut();
+  }
+
+  Future<void> uploadUserProfile(UserModel userModel) async {
+    await FirebaseFirestore.instance
+        .collection('user')
+        .doc(userModel.userId)
+        .set(userModel.toJson());
   }
 }

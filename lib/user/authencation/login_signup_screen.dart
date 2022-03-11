@@ -1,4 +1,4 @@
-import 'package:btax/user/authencation/controller/login_sceen_controller.dart';
+import 'package:btax/user/authencation/controller/login_screen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

@@ -1,5 +1,6 @@
 import 'package:btax/home/ui/home_screen.dart';
 import 'package:btax/user/authencation/auth_checker.dart';
+import 'package:btax/user/setup/ui/setup_profile_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

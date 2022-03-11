@@ -11,18 +11,28 @@ String userModelToJson(UserModel data) => json.encode(data.toJson());
 @freezed
 abstract class UserModel with _$UserModel {
   const factory UserModel({
-    required String bio,
     required String dateOfRegistration,
-    required List followers,
-    required List following,
-    required String profileUrl,
-    required String status,
-    required bool sticked,
     required String userEmail,
     required String userId,
-    required String userName,
+    required String userFirstName,
+    required String userLastName,
     required String userPhone,
-    required String userType,
+    required String userAddress,
+    required String userIDVerificatinType,
+    required String userBusinessName,
+    required String userBusinessType,
+    required int userTotalSalesAmount,
+    required bool doesSalesIncledeGST,
+    required String userGSTOnSales,
+    required String userGSTOnPurchases,
+    required String userABNNo,
+    required String userGSTAcMethod,
+    required bool doesUserHaveEmployees,
+    required int totalSalryOfEmployees,
+    required int totalAmountWidthdraw,
+    required String userDOB,
+    required int payableAmount,
+    required String paymentMethod,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

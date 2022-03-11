@@ -1,7 +1,7 @@
 import 'package:btax/common/widget_properties/input_border.dart';
 import 'package:btax/common/widget_properties/textStyle.dart';
 import 'package:btax/user/authencation/controller/auth_controller.dart';
-import 'package:btax/user/authencation/controller/login_sceen_controller.dart';
+import 'package:btax/user/authencation/controller/login_screen_controller.dart';
 import 'package:btax/user/authencation/signup_screen.dart';
 import 'package:btax/user/authencation/widget/auth_button.dart';
 import 'package:btax/user/authencation/widget/terms_and_condition_button.dart';

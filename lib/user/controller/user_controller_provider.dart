@@ -31,4 +31,18 @@ class UserController extends StateNotifier<AsyncValue<List<UserModel>>> {
     //   },
     // );
   }
+
+  uploadUserProfile(UserModel userModel) async {
+    try {
+      await _read(userRepositoryProvider).uploadUserProfile(userModel);
+    } catch (e) {
+      print(e);
+    }
+    // Provider.autoDispose(
+    //   (_) async {
+    //     articles = await ArticleModel.getArticleByCategory(category);
+    //     state = articles.isEmpty ? const AsyncError(message: 'No article found') : AsyncSuccess(data: articles);
+    //   },
+    // );
+  }
 }

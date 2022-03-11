@@ -29,4 +29,15 @@ class UserRepository {
       return [];
     }
   }
+
+  uploadUserProfile(UserModel user) async {
+    final firebase = FirebaseFirestore.instance;
+    try {
+      await firebase.collection('user').doc(user.userId).set(user.toJson());
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
 }

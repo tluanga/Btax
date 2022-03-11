@@ -41,18 +41,17 @@ class AuthButton extends HookConsumerWidget {
   }
 }
 
-Widget authButton(
-  String text, {
-  double width = double.infinity,
-  double height = 44,
-  Color color = Colors.blue,
-  bool isMainButton = false,
-}) {
+Widget authButton(String text,
+    {double width = double.infinity,
+    double height = 44,
+    Color color = const Color(0xFF26A69A),
+    bool isMainButton = false,
+    Color texcolor = Colors.white}) {
   return SizedBox(
     height: height,
     child: Container(
         decoration: BoxDecoration(
-          color: isMainButton ? Colors.teal[400] : Colors.white,
+          color: isMainButton ? color : Colors.white,
           // border: Border.all(
           //   width: 2,
           //   color: isMainButton ? Colors.blue : Colors.grey.shade800,
@@ -68,7 +67,7 @@ Widget authButton(
             style: primaryTextStyle(
                 weight: FontWeight.w600,
                 size: isMainButton ? 18 : 16,
-                color: isMainButton ? Colors.white : Colors.grey.shade700),
+                color: isMainButton ? texcolor : Colors.grey.shade700),
           ),
         )),
   );

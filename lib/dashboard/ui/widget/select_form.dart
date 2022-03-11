@@ -11,25 +11,22 @@ Widget selectForm() {
           height: 120,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: Colors.grey[100],
-            border: Border.all(
-              color: Colors.grey.shade600,
-              width: 1,
-            ),
+            color: Colors.teal.shade400,
+            // border: Border.all(
+            //   color: Colors.grey.shade600,
+            //   width: 1,
+            // ),
           ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Simple BAS Lodgement Form',
-                  style: primaryTextStyle(size: 18),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  '',
-                  style: primaryTextStyle(size: 14),
+                  textAlign: TextAlign.center,
+                  style: primaryTextStyle(size: 18, color: Colors.white),
                 ),
               ],
             ),
@@ -42,25 +39,23 @@ Widget selectForm() {
           height: 120,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: Colors.grey[100],
-            border: Border.all(
-              color: Colors.grey.shade600,
-              width: 1,
-            ),
+            color: Colors.teal.shade400,
+            // border: Border.all(
+            //   color: Colors.grey.shade600,
+            //   width: 1,
+            // ),
           ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'More Forms',
-                  style: primaryTextStyle(size: 16),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  '',
-                  style: primaryTextStyle(size: 14),
+                Center(
+                  child: Text(
+                    'More Forms',
+                    style: primaryTextStyle(size: 16, color: Colors.white),
+                  ),
                 ),
               ],
             ),

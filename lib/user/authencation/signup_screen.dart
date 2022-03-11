@@ -1,10 +1,13 @@
 import 'package:btax/common/widget_properties/input_border.dart';
 import 'package:btax/common/widget_properties/textStyle.dart';
+import 'package:btax/user/authencation/auth_checker.dart';
 import 'package:btax/user/authencation/controller/auth_controller.dart';
-import 'package:btax/user/authencation/controller/login_sceen_controller.dart';
+import 'package:btax/user/authencation/controller/login_screen_controller.dart';
 import 'package:btax/user/authencation/widget/auth_button.dart';
 import 'package:btax/user/authencation/widget/terms_and_condition_button.dart';
 import 'package:btax/user/authencation/widget/text_field_label.dart';
+import 'package:btax/user/setup/ui/setup_profile_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -129,18 +132,24 @@ class SignUpScreen extends HookConsumerWidget {
                           ? const CircularProgressIndicator()
                           : GestureDetector(
                               onTap: (() {
+                                String userId = '';
                                 if (_formKey.currentState!.validate()) {
                                   isLoading.value = true;
                                   print('valid');
+
+                                  ref
+                                      .read(setupCompleteController.state)
+                                      .state = false;
                                   _auth
                                       .signUpWithEmailAndPassword(
-                                          _email.text,
-                                          _password.text,
-                                          _name.text,
-                                          _bio.text,
-                                          context)
-                                      .whenComplete(
-                                          () => isLoading.value = false);
+                                          _email.text, _password.text, context)
+                                      .then((value) {})
+                                      .whenComplete(() {
+                                    isLoading.value = false;
+                                    ref
+                                        .read(loginScreenController.state)
+                                        .state = const SetupScreen();
+                                  });
                                 }
                               }),
                               child: authButton(
@@ -165,6 +174,7 @@ class SignUpScreen extends HookConsumerWidget {
                       ),
                       GestureDetector(
                         onTap: () {
+                          ref.read(setupCompleteController.state).state = false;
                           _auth.anonymousSignIn(context);
                         },
                         child: authButton(

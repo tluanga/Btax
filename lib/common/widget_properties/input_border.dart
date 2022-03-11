@@ -1,3 +1,4 @@
+import 'package:btax/common/widget_properties/textStyle.dart';
 import 'package:flutter/material.dart';
 
 InputDecoration textFieldInputDecoration(String label) {
@@ -15,6 +16,7 @@ InputDecoration textFieldInputDecoration(String label) {
       borderSide: const BorderSide(width: 1.5, color: Colors.white),
     ),
     labelText: label,
+    labelStyle: secondaryTextStyle(),
     isDense: true,
     fillColor: Colors.white,
     filled: true,
