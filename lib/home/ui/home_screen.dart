@@ -3,6 +3,7 @@
 import 'package:btax/common/widget_properties/textStyle.dart';
 import 'package:btax/dashboard/ui/dashboard_screen.dart';
 import 'package:btax/user/authencation/controller/auth_controller.dart';
+import 'package:btax/user/ui/user_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -47,20 +48,14 @@ class HomeScren extends HookConsumerWidget {
               ],
             ),
           ),
-          body: TabBarView(
+          body: const TabBarView(
             children: [
+              UserProfileScreen(''),
+              DashboardScreen(),
               Center(
-                child: TextButton(
-                    onPressed: () {
-                      ref.read(authenticationProvider).signOut();
-                    },
-                    child: const Text('Logout')),
-              ),
-              const DashboardScreen(),
-              const Center(
                 child: Text('Settings Page'),
               ),
-              const Center(
+              Center(
                 child: Text('About us Page'),
               ),
             ],

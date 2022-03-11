@@ -1,5 +1,6 @@
 import 'package:btax/common/widget_properties/input_border.dart';
 import 'package:btax/common/widget_properties/textStyle.dart';
+import 'package:btax/user/authencation/auth_checker.dart';
 import 'package:btax/user/authencation/controller/auth_controller.dart';
 import 'package:btax/user/authencation/controller/login_screen_controller.dart';
 import 'package:btax/user/authencation/signup_screen.dart';
@@ -103,6 +104,8 @@ class LoginScreen extends HookConsumerWidget {
                                       .whenComplete(
                                           () => isLoading.value = false);
                                 }
+                                ref.read(setupCompleteController.state).state =
+                                    true;
                               },
                               child: authButton('Login', isMainButton: true)),
                       Container(

@@ -7,6 +7,7 @@ import 'package:btax/user/authencation/widget/auth_button.dart';
 import 'package:btax/user/authencation/widget/terms_and_condition_button.dart';
 import 'package:btax/user/authencation/widget/text_field_label.dart';
 import 'package:btax/user/setup/ui/setup_profile_screen.dart';
+import 'package:btax/user/setup/user_details_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -61,25 +62,28 @@ class SignUpScreen extends HookConsumerWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.1,
                       ),
-                      textFieldLabel('Name'),
-                      TextFormField(
-                        controller: _name,
-                        enableSuggestions: true,
-                        keyboardType: TextInputType.emailAddress,
-                        onSaved: (value) {},
-                        decoration: textFieldInputDecoration('Name'),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'enter your name';
-                          }
-                          return null;
-                        },
-                      ),
+                      // textFieldLabel('Name'),
+                      // TextFormField(
+                      //   controller:userFirstNameController,
+                      //   enableSuggestions: true,
+                      //   keyboardType: TextInputType.emailAddress,
+                      //   onSaved: (value) {},
+                      //   decoration: textFieldInputDecoration('Name'),
+                      //   validator: (value) {
+                      //     if (value!.isEmpty) {
+                      //       return 'enter your name';
+                      //     }
+                      //     return null;
+                      //   },
+                      // ),
 
                       textFieldLabel('Email'),
                       TextFormField(
                         controller: _email,
                         enableSuggestions: true,
+                        onChanged: (value) {
+                          userEmailController.text = value.toString();
+                        },
                         keyboardType: TextInputType.emailAddress,
                         onSaved: (value) {},
                         decoration: textFieldInputDecoration('Email'),
@@ -132,7 +136,6 @@ class SignUpScreen extends HookConsumerWidget {
                           ? const CircularProgressIndicator()
                           : GestureDetector(
                               onTap: (() {
-                                String userId = '';
                                 if (_formKey.currentState!.validate()) {
                                   isLoading.value = true;
                                   print('valid');
@@ -158,7 +161,7 @@ class SignUpScreen extends HookConsumerWidget {
                               ),
                             ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.02,
+                        height: MediaQuery.of(context).size.height * 0.094,
                       ),
                       GestureDetector(
                         onTap: () {

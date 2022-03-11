@@ -29,7 +29,7 @@ class SetupScreen extends HookConsumerWidget {
     final isLoadingProcress = useState<bool>(false);
 
     final _auth = ref.watch(authenticationProvider);
-    final isloading = useState<bool>(false);
+
     return Scaffold(
       body: SafeArea(
         child: Form(
@@ -74,7 +74,8 @@ class SetupScreen extends HookConsumerWidget {
 // Address TextField ------------------------------------------------------------
                       textFormField('Address', userAddressController),
 // Phone TextField ------------------------------------------------------------
-                      textFormField('Phone No', userPhoneController),
+                      textFormField('Phone No', userPhoneController,
+                          isInt: true),
 //Choose ID for verification -----------------
                       textFormFieldDropdownButton(
                         idType,
