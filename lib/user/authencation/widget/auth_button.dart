@@ -1,25 +1,75 @@
 import 'package:btax/common/widget_properties/textStyle.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-Widget authButton(String text,
-    {double width = double.infinity, double height = 40}) {
+class AuthButton extends HookConsumerWidget {
+  final String text = 'Continue';
+  final double width = double.infinity;
+  final double height = 44;
+  final Color color = Colors.blue;
+  final bool isMainButton = false;
+  const AuthButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return SizedBox(
+      height: isMainButton ? height + 4 : height,
+      child: Container(
+          decoration: BoxDecoration(
+            color: isMainButton ? Colors.blue : Colors.white,
+            border: Border.all(
+              width: 2,
+              color: isMainButton ? Colors.white : Colors.grey.shade800,
+            ),
+            borderRadius: BorderRadius.circular(6),
+            //color: Colors.purple,
+          ),
+          height: 50,
+          width: width,
+          child: Center(
+            child: Text(
+              text,
+              style: primaryTextStyle(
+                  weight: FontWeight.w600,
+                  size: 18,
+                  color: isMainButton ? Colors.white : Colors.grey.shade800),
+            ),
+          )),
+    );
+  }
+}
+
+Widget authButton(
+  String text, {
+  double width = double.infinity,
+  double height = 44,
+  Color color = Colors.blue,
+  bool isMainButton = false,
+}) {
   return SizedBox(
-    height: 40,
+    height: height,
     child: Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          width: 2,
-          color: Colors.grey.shade600,
+        decoration: BoxDecoration(
+          color: isMainButton ? Colors.teal[400] : Colors.white,
+          // border: Border.all(
+          //   width: 2,
+          //   color: isMainButton ? Colors.blue : Colors.grey.shade800,
+          // ),
+          borderRadius: BorderRadius.circular(6),
+          //color: Colors.purple,
         ),
-        borderRadius: BorderRadius.circular(4),
-        //color: Colors.purple,
-      ),
-      height: 50,
-      width: width,
-      child: Center(
-        child: Text(text,
-            style: primaryTextStyle(weight: FontWeight.w600, size: 18)),
-      ),
-    ),
+        height: 50,
+        width: width,
+        child: Center(
+          child: Text(
+            text,
+            style: primaryTextStyle(
+                weight: FontWeight.w600,
+                size: isMainButton ? 18 : 16,
+                color: isMainButton ? Colors.white : Colors.grey.shade700),
+          ),
+        )),
   );
 }

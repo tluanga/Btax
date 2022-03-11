@@ -17,7 +17,7 @@ class HomeScren extends HookConsumerWidget {
       length: 4,
       child: Scaffold(
           bottomNavigationBar: Material(
-            color: Colors.purple,
+            color: Colors.teal[400],
             elevation: 10,
             child: TabBar(
               indicatorColor: Colors.white,
@@ -26,7 +26,7 @@ class HomeScren extends HookConsumerWidget {
                 size: 18,
               ),
               labelColor: Colors.white,
-              unselectedLabelColor: Colors.grey[400],
+              unselectedLabelColor: Colors.grey[300],
               labelPadding: const EdgeInsets.symmetric(horizontal: 2),
               tabs: const [
                 Tab(

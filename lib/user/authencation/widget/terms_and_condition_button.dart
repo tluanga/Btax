@@ -19,7 +19,7 @@ class TermsAndConditonButton extends StatelessWidget {
             Text(
               'Terms of',
               style: secondaryTextStyle(
-                color: Colors.blue,
+                color: Colors.teal,
               ),
             ),
           ],
@@ -29,7 +29,7 @@ class TermsAndConditonButton extends StatelessWidget {
           children: [
             Text(
               'Service',
-              style: secondaryTextStyle(color: Colors.blue),
+              style: secondaryTextStyle(color: Colors.teal),
             ),
             Text(
               ' and ',
@@ -37,7 +37,7 @@ class TermsAndConditonButton extends StatelessWidget {
             ),
             Text(
               'Privacy Policy',
-              style: secondaryTextStyle(color: Colors.blue),
+              style: secondaryTextStyle(color: Colors.teal),
             ),
           ],
         ),

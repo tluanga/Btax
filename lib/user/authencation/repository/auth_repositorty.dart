@@ -7,6 +7,26 @@ import 'package:flutter/material.dart';
 class Authentication {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Stream<User?> get authStateChange => _auth.authStateChanges();
+  Future<void> anonymousSignIn(BuildContext context) async {
+    try {
+      await _auth.signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      await showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Error Occured'),
+          content: cleanText(e.toString()),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.of(ctx).pop();
+                },
+                child: const Text("OK"))
+          ],
+        ),
+      );
+    }
+  }
 
   //  SigIn the user using Email and Password
   Future<void> signInWithEmailAndPassword(
@@ -87,45 +107,45 @@ class Authentication {
         print('Error: $e');
       }
     }
-  }
 
-  //  SignIn the user Google
-  // Future<void> signInWithGoogle(BuildContext context) async {
-  //   // Trigger the authentication flow
-  //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    //  SignIn the user Google
+    // Future<void> signInWithGoogle(BuildContext context) async {
+    //   // Trigger the authentication flow
+    //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-  //   // Obtain the auth details from the request
-  //   final GoogleSignInAuthentication googleAuth =
-  //       await googleUser!.authentication;
+    //   // Obtain the auth details from the request
+    //   final GoogleSignInAuthentication googleAuth =
+    //       await googleUser!.authentication;
 
-  //   // Create a new credential
-  //   final credential = GoogleAuthProvider.credential(
-  //     accessToken: googleAuth.accessToken,
-  //     idToken: googleAuth.idToken,
-  //   );
+    //   // Create a new credential
+    //   final credential = GoogleAuthProvider.credential(
+    //     accessToken: googleAuth.accessToken,
+    //     idToken: googleAuth.idToken,
+    //   );
 
-  //   try {
-  //     await _auth.signInWithCredential(credential);
-  //   } on FirebaseAuthException catch (e) {
-  //     await showDialog(
-  //       context: context,
-  //       builder: (ctx) => AlertDialog(
-  //         title: const Text('Error Occured'),
-  //         content: Text(e.toString()),
-  //         actions: [
-  //           TextButton(
-  //               onPressed: () {
-  //                 Navigator.of(ctx).pop();
-  //               },
-  //               child: const Text("OK"))
-  //         ],
-  //       ),
-  //     );
-  //   }
-  // }
+    //   try {
+    //     await _auth.signInWithCredential(credential);
+    //   } on FirebaseAuthException catch (e) {
+    //     await showDialog(
+    //       context: context,
+    //       builder: (ctx) => AlertDialog(
+    //         title: const Text('Error Occured'),
+    //         content: Text(e.toString()),
+    //         actions: [
+    //           TextButton(
+    //               onPressed: () {
+    //                 Navigator.of(ctx).pop();
+    //               },
+    //               child: const Text("OK"))
+    //         ],
+    //       ),
+    //     );
+    //   }
+    // }
 
-  //  SignOut the current user
-  Future<void> signOut() async {
-    await _auth.signOut();
+    //  SignOut the current user
+    Future<void> signOut() async {
+      await _auth.signOut();
+    }
   }
 }

@@ -1,5 +1,11 @@
+import 'package:btax/common/widget_properties/input_border.dart';
+import 'package:btax/common/widget_properties/textStyle.dart';
 import 'package:btax/user/authencation/controller/auth_controller.dart';
 import 'package:btax/user/authencation/controller/login_sceen_controller.dart';
+import 'package:btax/user/authencation/widget/auth_button.dart';
+import 'package:btax/user/authencation/widget/terms_and_condition_button.dart';
+import 'package:btax/user/authencation/widget/text_field_label.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 //import 'package:flutter/src/widgets/framework.dart';
@@ -22,220 +28,161 @@ class SignUpScreen extends HookConsumerWidget {
     final _auth = ref.watch(authenticationProvider);
 
     return Scaffold(
+// TermsAndConditionButton() ----------------------
+        bottomSheet: Container(
+            height: 40,
+            width: MediaQuery.of(context).size.width,
+            alignment: Alignment.bottomCenter,
+            child: const TermsAndConditonButton()),
         body: SafeArea(
-      child: Form(
-        key: _formKey,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 14.0, right: 14),
-          child: SizedBox(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                //  const Spacer(),
-                Flexible(
-                  child: Container(
-                    color: Colors.grey.shade100,
-                    child: TextFormField(
-                      controller: _name,
-                      enableSuggestions: true,
-                      keyboardType: TextInputType.emailAddress,
-                      onSaved: (value) {},
-                      decoration: const InputDecoration(
-                        hintText: 'Name',
-                        hintStyle: TextStyle(color: Colors.black54),
-                        //  icon: const Icon(Icons.email_outlined, size: 24),
-                        //  alignLabelWithHint: true,
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black54),
-                          //borderRadius: BorderRadius.circular(0),
-                        ),
+          child: Form(
+            key: _formKey,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height,
+                child: SingleChildScrollView(
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.04,
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'enter your name';
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Flexible(
-                  child: Container(
-                    color: Colors.grey.shade100,
-                    child: TextFormField(
-                      controller: _bio,
-                      maxLines: 3,
-                      minLines: 1,
-                      enableSuggestions: true,
-                      keyboardType: TextInputType.emailAddress,
-                      onSaved: (value) {},
-                      decoration: const InputDecoration(
-                        hintText: 'Bio',
-                        hintStyle: TextStyle(color: Colors.black54),
-                        //  icon: const Icon(Icons.email_outlined, size: 24),
-                        //  alignLabelWithHint: true,
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black54),
-                          //borderRadius: BorderRadius.circular(0),
-                        ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        child: Center(
+                            child: Text('Create an account',
+                                style: boldTextStyle(
+                                    size: 26, color: Colors.teal[600]))),
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Invalid bio!';
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Flexible(
-                  child: Container(
-                    color: Colors.grey.shade100,
-                    child: TextFormField(
-                      controller: _email,
-                      enableSuggestions: true,
-                      keyboardType: TextInputType.emailAddress,
-                      onSaved: (value) {},
-                      decoration: const InputDecoration(
-                        hintText: 'Email address',
-                        hintStyle: TextStyle(color: Colors.black54),
-                        //  icon: const Icon(Icons.email_outlined, size: 24),
-                        //  alignLabelWithHint: true,
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black54),
-                          //borderRadius: BorderRadius.circular(0),
-                        ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.1,
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty || !value.contains('@')) {
-                          return 'Invalid email!';
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Flexible(
-                  child: Container(
-                    color: Colors.grey.shade100,
-                    child: TextFormField(
-                      obscureText: true,
-                      controller: _password,
-                      enableSuggestions: true,
-                      keyboardType: TextInputType.emailAddress,
-                      onSaved: (value) {},
-                      decoration: const InputDecoration(
-                        hintText: 'Password',
-                        hintStyle: TextStyle(color: Colors.black54),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black54),
-                        ),
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty || value.length < 6) {
-                          return 'password  is too short!';
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Flexible(
-                  child: Container(
-                    color: Colors.grey.shade100,
-                    child: TextFormField(
-                      obscureText: true,
-                      // controller: _name,
-                      //  autocorrect: true,
-                      enableSuggestions: true,
-                      keyboardType: TextInputType.emailAddress,
-                      onSaved: (value) {},
-                      decoration: const InputDecoration(
-                        hintText: 'Confirm Password',
-                        hintStyle: TextStyle(color: Colors.black54),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black54),
-                        ),
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty || value != _password.text) {
-                          return 'password not match';
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                isLoading.value
-                    ? const CircularProgressIndicator()
-                    : MaterialButton(
-                        color: Colors.grey.shade600,
-                        onPressed: (() {
-                          if (_formKey.currentState!.validate()) {
-                            isLoading.value = true;
-                            print('valid');
-                            _auth
-                                .signUpWithEmailAndPassword(
-                                    _email.text,
-                                    _password.text,
-                                    _name.text,
-                                    _bio.text,
-                                    context)
-                                .whenComplete(() => isLoading.value = false);
+                      textFieldLabel('Name'),
+                      TextFormField(
+                        controller: _name,
+                        enableSuggestions: true,
+                        keyboardType: TextInputType.emailAddress,
+                        onSaved: (value) {},
+                        decoration: textFieldInputDecoration('Name'),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'enter your name';
                           }
-                        }),
-                        child: const SizedBox(
-                          width: double.infinity,
-                          child: Center(
-                            child: Text(
-                              'Sign up',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 20),
+                          return null;
+                        },
+                      ),
+
+                      textFieldLabel('Email'),
+                      TextFormField(
+                        controller: _email,
+                        enableSuggestions: true,
+                        keyboardType: TextInputType.emailAddress,
+                        onSaved: (value) {},
+                        decoration: textFieldInputDecoration('Email'),
+                        validator: (value) {
+                          if (value!.isEmpty || !value.contains('@')) {
+                            return 'Invalid email!';
+                          }
+                          return null;
+                        },
+                      ),
+                      // const SizedBox(
+                      //   height: 10,
+                      // ),
+                      textFieldLabel('Password'),
+                      TextFormField(
+                        obscureText: true,
+                        controller: _password,
+                        enableSuggestions: true,
+                        keyboardType: TextInputType.emailAddress,
+                        onSaved: (value) {},
+                        decoration: textFieldInputDecoration('Password'),
+                        validator: (value) {
+                          if (value!.isEmpty || value.length < 6) {
+                            return 'password  is too short!';
+                          }
+                          return null;
+                        },
+                      ),
+                      // const SizedBox(
+                      //   height: 10,
+                      // ),
+                      textFieldLabel('Confirm Password'),
+                      TextFormField(
+                        obscureText: true,
+                        enableSuggestions: true,
+                        onSaved: (value) {},
+                        decoration:
+                            textFieldInputDecoration('Confirm Password'),
+                        validator: (value) {
+                          if (value!.isEmpty || value != _password.text) {
+                            return 'password not match';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      isLoading.value
+                          ? const CircularProgressIndicator()
+                          : GestureDetector(
+                              onTap: (() {
+                                if (_formKey.currentState!.validate()) {
+                                  isLoading.value = true;
+                                  print('valid');
+                                  _auth
+                                      .signUpWithEmailAndPassword(
+                                          _email.text,
+                                          _password.text,
+                                          _name.text,
+                                          _bio.text,
+                                          context)
+                                      .whenComplete(
+                                          () => isLoading.value = false);
+                                }
+                              }),
+                              child: authButton(
+                                'Sign Up',
+                                isMainButton: true,
+                              ),
                             ),
-                          ),
-                        ),
-                        textColor: Colors.white,
-                        //    textTheme: ButtonTextTheme.primary,
-                        minWidth: 100,
-                        padding: const EdgeInsets.all(18),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
-                          // side: BorderSide(color: Colors.blue.shade700),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          ref.read(loginScreenController.state).state =
+                              const LoginScreen();
+                        },
+                        child: authButton(
+                          'Already have an account? Login in',
                         ),
                       ),
-                TextButton(
-                    onPressed: () {
-                      ref.read(loginScreenController.state).state =
-                          const LoginScreen();
-                    },
-                    child: const Text('Already have an account?')),
-                // const Spacer()
-              ],
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _auth.anonymousSignIn(context);
+                        },
+                        child: authButton(
+                          'Continue as Guest',
+                        ),
+                      ),
+                      // TextButton(
+                      //     onPressed: () {
+                      //       ref.read(loginScreenController.state).state =
+                      //           const LoginScreen();
+                      //     },
+                      //     child: const Text('Already have an account?')),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
-        ),
-      ),
-    ));
+        ));
   }
 }
