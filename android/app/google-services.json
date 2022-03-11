@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "591026351040",
+    "project_id": "btax-ba812",
+    "storage_bucket": "btax-ba812.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591026351040:android:29e076475288532026f625",
+        "android_client_info": {
+          "package_name": "com.example.btax"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591026351040-qfr0mfcbv1ic2qfl559b64e3ommt75t5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBK0SzremtBKkP1HTqwXTzWDg8l4Au1Pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591026351040-qfr0mfcbv1ic2qfl559b64e3ommt75t5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
