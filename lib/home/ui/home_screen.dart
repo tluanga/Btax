@@ -17,12 +17,14 @@ class HomeScren extends HookConsumerWidget {
       length: 4,
       child: Scaffold(
           bottomNavigationBar: Material(
-            color: Colors.grey.shade200,
+            color: Colors.purple,
             elevation: 10,
             child: TabBar(
-              labelStyle: primaryTextStyle(),
-              labelColor: Colors.black,
-              unselectedLabelColor: Colors.grey[700],
+              indicatorColor: Colors.white,
+              labelStyle: primaryTextStyle(size: 18),
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.grey[400],
+              labelPadding: const EdgeInsets.symmetric(horizontal: 2),
               tabs: const [
                 Tab(
                   text: 'Profile',

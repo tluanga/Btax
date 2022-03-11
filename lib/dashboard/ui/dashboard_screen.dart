@@ -18,7 +18,7 @@ class DashboardScreen extends HookConsumerWidget {
             children: [
               Text(
                 'Dashboard',
-                style: boldTextStyle(size: 30),
+                style: boldTextStyle(size: 30, color: Colors.grey.shade900),
               ),
               const SizedBox(height: 4),
               // Container(
@@ -29,12 +29,12 @@ class DashboardScreen extends HookConsumerWidget {
               const SizedBox(height: 20),
               Text(
                 'Welcome to your dashboard',
-                style: primaryTextStyle(size: 18),
+                style: primaryTextStyle(size: 18, color: Colors.grey.shade800),
               ),
               const SizedBox(height: 6),
               Text(
                 'Plese select a from you are interested in',
-                style: primaryTextStyle(size: 18),
+                style: primaryTextStyle(size: 18, color: Colors.grey.shade800),
               ),
               const SizedBox(height: 30),
               selectForm(),
@@ -49,7 +49,7 @@ class DashboardScreen extends HookConsumerWidget {
               const SizedBox(height: 20),
               Text(
                 'History',
-                style: boldTextStyle(size: 20),
+                style: boldTextStyle(size: 18),
               ),
               const SizedBox(height: 20),
               Container(
@@ -60,14 +60,15 @@ class DashboardScreen extends HookConsumerWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 child: Text(
                   'No past activities have been found',
-                  style: primaryTextStyle(size: 18),
+                  style:
+                      primaryTextStyle(size: 18, color: Colors.grey.shade700),
                 ),
               ),
 
               const SizedBox(height: 20),
               Text(
                 'Remove History?',
-                style: boldTextStyle(size: 20, color: Colors.redAccent),
+                style: boldTextStyle(size: 18, color: Colors.redAccent),
               ),
             ],
           ),
