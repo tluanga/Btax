@@ -26,7 +26,7 @@ class MyApp extends HookConsumerWidget {
       title: 'BTax',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey.shade100,
+        scaffoldBackgroundColor: Colors.grey.shade50,
         primarySwatch: Colors.blue,
       ),
       home: initialize.when(

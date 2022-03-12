@@ -8,10 +8,12 @@ Widget textFormFieldDropdownButton(
   String hint,
   TextEditingController controller,
   String selectedValue,
-  String errorText,
-) {
+  String errorText, {
+  double topPadding = 12,
+  int fontSize = 14,
+}) {
   return Padding(
-    padding: const EdgeInsets.only(top: 12.0),
+    padding: EdgeInsets.only(top: topPadding),
     child: DropdownButtonFormField2(
       decoration: InputDecoration(
         fillColor: Colors.white,
@@ -33,7 +35,7 @@ Widget textFormFieldDropdownButton(
       ),
       hint: Text(
         hint,
-        style: secondaryTextStyle(),
+        style: secondaryTextStyle(size: fontSize),
       ),
       icon: const Icon(
         Icons.arrow_drop_down,

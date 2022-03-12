@@ -34,10 +34,10 @@ class UserProfileScreen extends HookConsumerWidget {
                               ref.read(authenticationProvider).signOut();
                             },
                             child: const Text('Logout'))),
-                    const Icon(
+                    Icon(
                       Icons.person_rounded,
                       size: 80,
-                      color: Colors.teal,
+                      color: Colors.grey.shade600,
                     ),
                     const SizedBox(height: 16),
                     userProfileText(user.userFirstName, 'FirstName'),
